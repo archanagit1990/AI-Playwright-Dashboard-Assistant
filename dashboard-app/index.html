@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SVT Dashboard</title>
+</head>
+<body>
+  <h1>SVT Dashboard</h1>
+
+  <label for="buildSearch">Search Build:</label>
+  <input id="buildSearch" type="text" placeholder="Enter build number" />
+  <button id="searchBtn">Search</button>
+
+  <h2>Build Results</h2>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Build</th>
+        <th>OS</th>
+        <th>Host</th>
+        <th>Target Hours</th>
+        <th>Executed Hours</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="resultsTable">
+      <tr>
+        <td>s2602162137</td>
+        <td>RHEL 9.6</td>
+        <td>svt-host-01</td>
+        <td>72</td>
+        <td>72</td>
+        <td>Passed</td>
+      </tr>
+      <tr>
+        <td>S12345</td>
+        <td>RHEL 9.6</td>
+        <td>svt-host-02</td>
+        <td>72</td>
+        <td>40</td>
+        <td>Incomplete</td>
+      </tr>
+      <tr>
+        <td>s2602162137</td>
+        <td>AIX</td>
+        <td>svt-host-03</td>
+        <td>72</td>
+        <td>10</td>
+        <td>Failed</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="summary"></div>
+
+  <script>
+    document.getElementById("searchBtn").addEventListener("click", function () {
+      const build = document.getElementById("buildSearch").value;
+      document.getElementById("summary").innerText =
+        "Build " + build + " loaded successfully. 1 Passed, 1 Incomplete, 1 Failed.";
+    });
+  </script>
+</body>
+</html>
